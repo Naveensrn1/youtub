@@ -1,23 +1,19 @@
 pipeline {
     agent any
-    environment {
-        PATH="/opt/maven/bin:$PATH"
-    }
-
     stages {
-        stage('SCM') {
+        stage('build') {
             steps {
-                git 'https://github.com/sekhareric/hello-world.git'
+                echo "building the application..."
             }
         }
-        stage('Maven') {
+        stage('test') {
             steps {
-                sh "mvn package"
+                echo "testing the application..."
             }
         }
-        stage('hi') {
+        stage('deploy') {
             steps {
-                echo 'hi guys...!'
+                echo "deploying the application..."
             }
         }
     }
